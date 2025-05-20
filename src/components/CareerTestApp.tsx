@@ -74,7 +74,6 @@ const questions = [
   },
 ];
 
-
 const resultText = {
   frontend: "당신은 감각적인 프론트엔드 개발자!",
   backend: "당신은 논리적인 백엔드 개발자!",
