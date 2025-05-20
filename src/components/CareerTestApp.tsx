@@ -86,16 +86,21 @@ const resultText = {
 export default function CareerTestApp() {
   const [current, setCurrent] = useState(0);
   const [answers, setAnswers] = useState<string[]>([]);
+  const [selected, setSelected] = useState<number | null>(null); // ✅ 추가
   const [finished, setFinished] = useState(false);
 
-  const handleAnswer = (type: string) => {
-    const nextAnswers = [...answers, type];
-    setAnswers(nextAnswers);
-    if (current + 1 < questions.length) {
-      setCurrent(current + 1);
-    } else {
-      setFinished(true);
-    }
+  const handleAnswer = (type: string, idx: number) => {
+    setSelected(idx); // ✅ 선택 표시
+    setTimeout(() => {
+      const nextAnswers = [...answers, type];
+      setAnswers(nextAnswers);
+      if (current + 1 < questions.length) {
+        setCurrent(current + 1);
+      } else {
+        setFinished(true);
+      }
+      setSelected(null); // ✅ 다음 질문으로 넘어갈 때 선택 초기화
+    }, 200); // 0.2초 후 전환 (선택 효과 잠깐 보이게)
   };
 
   const getResult = () => {
@@ -125,8 +130,10 @@ export default function CareerTestApp() {
         {q.options.map((opt, idx) => (
           <button
             key={idx}
-            onClick={() => handleAnswer(opt.type)}
-            className="p-4 bg-blue-100 hover:bg-blue-300 rounded-xl shadow"
+            onClick={() => handleAnswer(opt.type, idx)}
+            className={`p-4 rounded-xl shadow transition-all
+              ${selected === idx ? "bg-blue-400 text-white" : "bg-blue-100 hover:bg-blue-300"}
+            `}
           >
             {opt.text}
           </button>
