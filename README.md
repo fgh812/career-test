@@ -16,7 +16,7 @@
 
 1. 레포지토리 클론
 ```bash
-git clone https://github.com/yourname/career-test.git
+git clone https://github.com/fgh812/career-test.git
 cd career-test
 ```
 
@@ -40,48 +40,5 @@ http://localhost:5173
 - `questions`: 일상 속 행동을 기반으로 직군을 판별하는 7가지 질문
 - `result`: 선택된 답안 유형에 따라 가장 높은 점수를 받은 직군을 결과로 출력
 
-## 📁 디렉토리 구조
-```
-career-test/
-├── public/
-├── src/
-│   ├── App.tsx
-│   └── main.tsx
-├── index.html
-└── vite.config.ts
-```
-
 ## ✍️ 제작자
 - 이 테스트는 개발 직군에 관심 있는 비전공자/초보자를 위해 제작되었습니다.
-
-## 📌 향후 개선사항
-
-- 테스트 결과에 따른 직군별 상세 설명 및 추천 학습 자료 제공
-- 응답 기반 점수 가중치 커스터마이징 기능
-- 응답 결과 저장 및 분석 기능 (로컬스토리지 또는 서버 연동)
-- 모바일 반응형 UI 개선
-
-## 🛠 배포 방법 (Ubuntu 서버 기준)
-
-1. GitHub Actions 또는 수동으로 빌드
-```bash
-npm run build
-```
-
-2. 서버에 빌드된 `dist` 폴더 업로드 후 nginx 설정
-```nginx
-server {
-  listen 80;
-  server_name your.domain.com;
-  root /path/to/dist;
-
-  location / {
-    try_files $uri /index.html;
-  }
-}
-```
-
-3. SSL 인증서 적용 및 포트 포워딩 설정 (선택)
-
-## 🔗 라이선스
-MIT License
