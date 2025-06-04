@@ -124,7 +124,7 @@ export default function CareerTestApp() {
 
   return (
     <div className="flex flex-col items-center justify-center h-screen p-4">
-      <p>문구를 추가해보세요.</p>
+      <p>수정했습니다.</p>
       <h1 className="text-lg font-semibold mb-6 text-center">Q{current + 1}. {q.question}</h1>
       <div className="flex flex-col gap-4 w-full max-w-md">
         {q.options.map((opt, idx) => (
